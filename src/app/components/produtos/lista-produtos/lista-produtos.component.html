@@ -15,21 +15,20 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th>1</th>
-        <th>Cuso de Angular</th>
-        <th>31/12/2021</th>
-        <th>R$ 500,00</th>
+      <tr *ngFor="let prod of listaProdutos">
+        <td>{{ prod.id }}</td>
+        <td>{{ prod.nome }}</td>
+        <td>{{ prod.validade | date: "shortDate" }}</td>
+        <td>{{ prod.precoProduto | currency: "BRL" }}</td>
         <th>
           <button class="btn btn-warning">
             <i class="fa fa-pencil" aria-hidden="true"></i>
-          </button>
-          <button class="btn btn-warning">
+          </button>&nbsp;
+          <button class="btn btn-danger n1-2">
             <i class="fa fa-trash-o" aria-hidden="true"></i>
           </button>
         </th>
       </tr>
     </tbody>
   </table>
-
 </div>
