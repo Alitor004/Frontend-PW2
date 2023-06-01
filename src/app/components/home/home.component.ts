@@ -6,15 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  nomeProduto : string = 'Cusdo de Angular';
+
+  nomeProduto : string = 'Curso de Angular';
   anuncio : string = `O ${this.nomeProduto} está em promoção`;
-  idProduto : number = 1;
-  precoProduto : number = 2.59;
+  idProduto : number = 3;
+  precoProduto : number = 2.51;
   promocao : boolean = true;
-
-  logo : string = "../../../assets/img/logo_horacio.png";
-  foto: string = '../../../assets/img/crud.png';
-
+  foto: string = 'assets/img/crud.png';
   dataValidade = '2021-12-31';
 
 
