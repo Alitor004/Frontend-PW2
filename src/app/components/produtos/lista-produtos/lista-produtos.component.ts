@@ -1,4 +1,6 @@
+import { IProduto } from './../../model/IProduto.model';
 import { Component } from '@angular/core';
+import { ProdutosService } from 'src/app/services/prudutos.service';
 
 @Component({
   selector: 'app-lista-produtos',
@@ -7,36 +9,20 @@ import { Component } from '@angular/core';
 })
 export class ListaProdutosComponent {
 
-  listaStrings: string[] = ['Primeiro', 'Segundo', 'Terceiro'];
-  listaNumeros: number[] = [15, 15.18, 100];
-
-  objetoModelo = {
-    nome: 'Fatima',
-    idade: 18,
-    altura: 1.56,
-    graduado: true
-  };
+  listaProdutos: IProduto[] = [];
 
 
-  listaProdutos: any[] = [
-    {nome: 'Cusdo de Angular', precoProduto: 35.56, validade: '2021/12/31', id: 1},
-    {nome: 'Cusdo de Ionic', precoProduto: 50, validade: '2021-12-31', id: 2, promocao: true},
-    {id: 3, nome: 'Cusdo de Ionic Avançado', precoProduto: 50, validade: '2021/12/31'},
-  ];
-
-  contructor(){
-    for (let item of this.listaStrings){
-      console.log(item);
-    }
-
-    for (const item of this.listaNumeros){
-      console.log(item);
-    }
-
-    console.log(this.objetoModelo);
-    console.log(this.objetoModelo.nome);
+  constructor(private produtosService : ProdutosService){
 
   }
 
+  ngOnInit(): void{
+    this.carregarProdutos();
+  }
+  carregarProdutos(): void{
+    this.produtosService.buscarTodos().subscribe(retorno => {
+      this.listaProdutos = retorno;
+    })
+  }
 
 }
