@@ -1,4 +1,4 @@
-import { IProduto } from './../../model/IProduto.model';
+import { IProduto } from './../../../model/IProduto.model';
 import { Component } from '@angular/core';
 import { ProdutosService } from 'src/app/services/prudutos.service';
 
